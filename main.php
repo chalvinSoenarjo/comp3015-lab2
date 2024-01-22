@@ -36,3 +36,23 @@ printf(PHP_EOL . "There are now %d books saved to the store:" . PHP_EOL, count($
 foreach ($books as $book) {
     printBook($book);
 }
+
+// Test getBookByISBN method
+echo PHP_EOL . "Testing getBookByISBN('9780358653035'):" . PHP_EOL;
+$bookByISBN = $bookRepository->getBookByISBN('9780358653035');
+if ($bookByISBN !== null) {
+    echo "Book found:" . PHP_EOL;
+    printBook($bookByISBN);
+} else {
+    echo "Book with ISBN '9780358653035' not found." . PHP_EOL;
+}
+
+// Test getBookByTitle method
+echo PHP_EOL . "Testing getBookByTitle('A Brief History of time'):" . PHP_EOL;
+$bookByTitle = $bookRepository->getBookByTitle('A Brief History of time');
+if ($bookByTitle !== null) {
+    echo "Book found:" . PHP_EOL;
+    printBook($bookByTitle);
+} else {
+    echo "Book with title 'A Brief History of time' not found." . PHP_EOL;
+}
